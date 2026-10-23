@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISP Cyber Code Hub | Web Development Course</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Poppins:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Cyber Glow Background Grid -->
+    <div class="cyber-grid"></div>
+
+    <!-- Main Portal Navigation Header -->
+    <header class="cyber-header">
+      <div class="header-brand">
+        <img src="ISP LOGO.png" alt="ISP Logo" class="neon-logo" />
+        <div class="brand-titles">
+          <h1 class="glitch-title" data-text="ISP CYBER CODE HUB">
+            ISP CYBER CODE HUB
+          </h1>
+          <p class="cyber-subtitle">
+            International School Phuket • Frontend Dev Academy
+          </p>
+        </div>
+      </div>
+      <div class="system-status">
+        <span class="pulse-node"></span>
+        <span class="status-text">SYSTEM ONLINE</span>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="portal-container">
+      <!-- HERO / FEATURED MODULE: Interactive Security Terminal -->
+      <section class="cyber-section terminal-hero">
+        <div class="section-tag">FEATURED PROJECT</div>
+        <h2 class="neon-heading magenta-glow">
+          🛡️ ISP Smart Access Control Terminal
+        </h2>
+        <p class="section-desc">
+          Test your security access PIN below to simulate the gate scanner!
+        </p>
+
+        <!-- Security Terminal Hardware Shell -->
+        <div class="terminal-container" id="terminal">
+          <div class="terminal-badge-bar">
+            <span class="cyber-chip">SEC-SYS v2.4</span>
+            <span class="badge-gold">ISP SECURITY</span>
+          </div>
+
+          <!-- UI Screen 1: PIN Input -->
+          <div id="input-screen" class="screen-box">
+            <h3 class="cyan-text">ENTER ACCESS PIN CODE:</h3>
+            <div class="input-wrapper">
+              <input
+                type="password"
+                id="access-code"
+                placeholder="••••"
+                maxlength="4"
+                autocomplete="off"
+              />
+            </div>
+            <button id="submit-btn" class="cyber-button">VERIFY CODE ⚡</button>
+            <p class="hint-text">
+              Demo Codes: <strong>1234</strong> (Granted) |
+              <strong>9999</strong> (Blacklisted)
+            </p>
+          </div>
+
+          <!-- UI Screen 2: Processing Scanner -->
+          <div id="processing-screen" class="screen-box hidden">
+            <div class="cyber-scanner">
+              <div class="laser-beam"></div>
+              <div class="spinner-neon"></div>
+            </div>
+            <p class="scanning-text">SCANNING BIOMETRIC DATA... BEEP!</p>
+          </div>
+
+          <!-- UI Screen 3: Access Granted Card -->
+          <div id="granted-card" class="card-box hidden">
+            <div class="access-badge granted">✓ ACCESS GRANTED</div>
+            <div class="profile-card-cyber">
+              <img
+                src="green_guardians.png"
+                alt="Eco House Shield"
+                class="house-emblem-img"
+              />
+              <div class="card-details">
+                <h4>Alex Smith <span class="grade-pill">Grade 8</span></h4>
+                <p><strong>Parent:</strong> Mr. & Mrs. Smith</p>
+                <p>
+                  <strong>House:</strong>
+                  <span class="house-tag guardian">Green Guardians 🛡️</span>
+                </p>
+                <p><strong>Status:</strong> Clear Access Authorized</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- UI Screen 4: Access Denied Alert -->
+          <div id="denied-card" class="card-box hidden">
+            <div class="access-badge denied">⛔ ACCESS DENIED</div>
+            <p class="denied-msg">SECURITY ALERT: CODE BLACKLISTED!</p>
+            <p class="denied-sub">
+              Report immediately to administration security office.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LESSONS CURRICULUM MODULES -->
+      <section class="cyber-section">
+        <div class="section-tag">CURRICULUM ARCHITECTURE</div>
+        <h2 class="neon-heading cyan-glow">
+          ⚡ JavaScript Foundations Modules
+        </h2>
+
+        <div class="modules-grid">
+          <!-- Module 1 Card -->
+          <div class="cyber-card">
+            <div class="card-header">
+              <span class="mod-num">MOD 01</span>
+              <h3>Data Output Mechanisms</h3>
+            </div>
+            <p class="card-body-text">
+              Master communication channels between program and user using
+              standard output methods.
+            </p>
+            <ul class="cyber-list">
+              <li><code>console.log()</code> — Developer Console</li>
+              <li><code>alert()</code> — Popup Notification</li>
+              <li><code>document.write()</code> — DOM Document Stream</li>
+            </ul>
+          </div>
+
+          <!-- Module 2 Card -->
+          <div class="cyber-card">
+            <div class="card-header">
+              <span class="mod-num">MOD 02</span>
+              <h3>Variables & Backtick Interpolation</h3>
+            </div>
+            <p class="card-body-text">
+              Store data in memory boxes with <code>let</code> and build
+              template literals.
+            </p>
+            <ul class="cyber-list">
+              <li><code>let</code> declarations & <code>camelCase</code></li>
+              <li>Backtick Template Literals (<code>`...`</code>)</li>
+              <li>Embedded Expressions (<code>${...}</code>)</li>
+            </ul>
+          </div>
+
+          <!-- Module 3 Card -->
+          <div class="cyber-card">
+            <div class="card-header">
+              <span class="mod-num">MOD 03</span>
+              <h3>User Inputs & Type Casting</h3>
+            </div>
+            <p class="card-body-text">
+              Capture dynamic user input and solve string-to-number type traps.
+            </p>
+            <ul class="cyber-list">
+              <li><code>prompt()</code> & <code>confirm()</code></li>
+              <li>Type Conversion via <code>Number()</code></li>
+              <li><code>typeof</code> Operator Inspection</li>
+            </ul>
+          </div>
+
+          <!-- Module 4 Card -->
+          <div class="cyber-card">
+            <div class="card-header">
+              <span class="mod-num">MOD 04</span>
+              <h3>Auto-Increment Logic & DOM</h3>
+            </div>
+            <p class="card-body-text">
+              Build automated itemized lists, shopping receipts, and dynamic UI
+              elements.
+            </p>
+            <ul class="cyber-list">
+              <li>
+                Auto-counters (<code>index++</code> / <code>index--</code>)
+              </li>
+              <li>DOM Selection (<code>getElementById</code>)</li>
+              <li>UI Class Toggling (<code>classList</code>)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ISP ECO HOUSES BADGES SECTION -->
+      <section class="cyber-section">
+        <div class="section-tag">CAMPUS HOUSES</div>
+        <h2 class="neon-heading green-glow">🌱 ISP Student Eco Houses</h2>
+
+        <div class="houses-grid">
+          <div class="house-card guardians-border">
+            <img
+              src="green_guardians.png"
+              alt="Green Guardians"
+              class="house-logo"
+            />
+            <h3>Green Guardians</h3>
+            <p>Environmental Stewardship & Tree Planting</p>
+          </div>
+
+          <div class="house-card protectors-border">
+            <img
+              src="water_protectors.png"
+              alt="Water Protectors"
+              class="house-logo"
+            />
+            <h3>Water Protectors</h3>
+            <p>Phuket Marine Life & Beach Cleanups</p>
+          </div>
+
+          <div class="house-card keepers-border">
+            <img src="sun_keepers.png" alt="Sun Keepers" class="house-logo" />
+            <h3>Sun Keepers</h3>
+            <p>Clean Solar Energy & Campus Audits</p>
+          </div>
+
+          <div class="house-card rangers-border">
+            <img
+              src="forest_rangers.png"
+              alt="Forest Rangers"
+              class="house-logo"
+            />
+            <h3>Forest Rangers</h3>
+            <p>Wildlife Protection & Biodiversity</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="cyber-footer">
+      <p>International School Phuket (ISP) • Web Development Curriculum</p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
