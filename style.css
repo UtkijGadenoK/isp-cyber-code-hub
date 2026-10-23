@@ -629,6 +629,15 @@ img {
   overflow-wrap: anywhere;
 }
 
+/* Reset link styles for card wrappers */
+.card-link,
+.card-link:hover,
+.card-link:visited {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Keeps original text colors */
+  display: block; /* Keeps the full card clickable */
+}
+
 /* =========================================================
    13. ECO HOUSES GRID
 ========================================================= */
