@@ -851,3 +851,37 @@ img {
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================
+   18. CHEAT SHEET CARDS
+========================================================= */
+.tip-box {
+  display: block;
+  width: 100%;
+  background: rgba(252, 182, 0, 0.1);
+  border: 1px solid var(--isp-gold);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin-top: 1rem;
+  color: var(--isp-gold);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.tip-box strong,
+.tip-box code,
+.tip-box .keyboard-badge {
+  display: inline;
+}
+
+.keyboard-badge {
+  background: #34445c;
+  color: #fff;
+  border: 1px solid #526581;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-family: var(--font-code);
+  font-weight: 600;
+}

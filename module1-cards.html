@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Module 1 Visual Reference | ISP Cyber Code Hub</title>
+    <title>Module 1 Visual Reference & Cheat Sheet | ISP Cyber Code Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -145,7 +145,7 @@
         padding-bottom: 0.8rem;
       }
       .card-title {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
         font-weight: 700;
         color: var(--neon-cyan);
         display: flex;
@@ -162,45 +162,6 @@
         border-radius: 6px;
       }
 
-      .diagram-box {
-        background: rgba(0, 0, 0, 0.4);
-        border: 1px dashed rgba(0, 243, 255, 0.3);
-        border-radius: 10px;
-        padding: 1rem;
-        margin-bottom: 1.2rem;
-      }
-      .channel-row {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 10px;
-        font-size: 0.9rem;
-      }
-      .channel-tag {
-        font-family: 'Fira Code', monospace;
-        font-weight: 700;
-        padding: 4px 10px;
-        border-radius: 6px;
-        font-size: 0.8rem;
-        min-width: 120px;
-        text-align: center;
-      }
-      .tag-console {
-        background: rgba(0, 243, 255, 0.15);
-        color: var(--neon-cyan);
-        border: 1px solid var(--neon-cyan);
-      }
-      .tag-alert {
-        background: rgba(255, 0, 127, 0.15);
-        color: var(--neon-magenta);
-        border: 1px solid var(--neon-magenta);
-      }
-      .tag-doc {
-        background: rgba(57, 255, 20, 0.15);
-        color: var(--neon-green);
-        border: 1px solid var(--neon-green);
-      }
-
       .code-block {
         background: var(--code-bg);
         border-radius: 8px;
@@ -211,6 +172,7 @@
         color: #f8fafc;
         border-left: 3px solid var(--neon-cyan);
         margin-bottom: 1rem;
+        position: relative;
       }
       .code-block .keyword {
         color: var(--neon-magenta);
@@ -227,6 +189,41 @@
         font-style: italic;
       }
       .code-block .var-name {
+        color: var(--neon-gold);
+      }
+      .code-block .tag {
+        color: var(--neon-magenta);
+      }
+      .code-block .attr {
+        color: var(--neon-cyan);
+      }
+
+      .keyboard-badge {
+        background: #334155;
+        color: #fff;
+        font-family: 'Fira Code', monospace;
+        padding: 3px 8px;
+        border-radius: 6px;
+        border: 1px solid #475569;
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+      .step-list {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1rem;
+      }
+      .step-item {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        padding-left: 1.5rem;
+        position: relative;
+        line-height: 1.5;
+      }
+      .step-item::before {
+        content: '⚡';
+        position: absolute;
+        left: 0;
         color: var(--neon-gold);
       }
 
@@ -248,15 +245,33 @@
         font-family: 'Fira Code', monospace;
       }
 
-      .keyboard-badge {
-        background: #334155;
-        color: #fff;
-        font-family: 'Fira Code', monospace;
-        padding: 2px 6px;
-        border-radius: 4px;
-        border: 1px solid #475569;
-        font-size: 0.8rem;
+      .app-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+        margin-top: 0.8rem;
       }
+      .app-item {
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 0.8rem;
+      }
+      .app-name {
+        font-weight: 700;
+        color: var(--neon-gold);
+        font-size: 0.88rem;
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .app-desc {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        line-height: 1.4;
+      }
+
       .tip-box {
         background: rgba(252, 182, 0, 0.1);
         border: 1px solid var(--neon-gold);
@@ -265,7 +280,9 @@
         font-size: 0.85rem;
         color: var(--neon-gold);
         margin-top: 1rem;
-        display: flex;
+        display: block;
+        line-height: 1.7;
+        overflow-wrap: break-word;
         align-items: center;
         gap: 10px;
       }
@@ -274,144 +291,385 @@
         margin-top: 3rem;
         color: var(--text-muted);
         font-size: 0.85rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .back-nav {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        z-index: 10;
+      }
+      .back-btn {
+        background: rgba(16, 24, 40, 0.8);
+        border: 1px solid var(--neon-cyan);
+        color: var(--neon-cyan);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-family: 'Fira Code', monospace;
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+      }
+      .back-btn:hover {
+        background: var(--neon-cyan);
+        color: #000;
+        box-shadow: 0 0 15px var(--neon-cyan);
       }
     </style>
   </head>
   <body>
+    <div class="back-nav">
+      <a href="index.html" class="back-btn">← BACK TO PORTAL</a>
+    </div>
+
     <header class="header">
       <div class="badge-bar">MODULE 01 • CHEAT SHEET CARD</div>
-      <h1>Data Output Mechanisms</h1>
+      <h1>Data Output & VS Code Setup</h1>
       <p class="subtitle">
-        Visual Reference for Output Channels, String Rules & Variable
-        Conventions
+        Visual reference guide for project setup, HTML linking, output channels
+        & variable rules.
       </p>
     </header>
 
     <main class="cards-grid">
-      <!-- CARD 1: OUTPUT CHANNELS -->
+      <!-- CARD 1: VS CODE DOCTYPE TRICK & PROJECT SETUP -->
       <section class="ref-card">
         <div class="card-header">
-          <h2 class="card-title">📡 Output Channels</h2>
+          <h2 class="card-title">⚡ 1. VS Code HTML Boilerplate Shortcut</h2>
           <span class="card-num">CARD 01</span>
         </div>
+        <p
+          style="
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+          "
+        >
+          Generate a complete HTML5 document structure instantly using VS Code's
+          built-in <strong>Emmet</strong> engine:
+        </p>
 
-        <div class="diagram-box">
-          <div class="channel-row">
-            <span class="channel-tag tag-console">console.log()</span>
-            <span>--> Developer Console (Hidden/Debug)</span>
-          </div>
-          <div class="channel-row">
-            <span class="channel-tag tag-alert">alert()</span>
-            <span>--> Pop-up Window (Pauses Screen)</span>
-          </div>
-          <div class="channel-row">
-            <span class="channel-tag tag-doc">document.write()</span>
-            <span>--> Web Page Body (Renders HTML)</span>
-          </div>
-        </div>
+        <ul class="step-list">
+          <span class="step-item"
+            >Create a file named <code>index.html</code> in VS Code.</span
+          >
+          <span class="step-item"
+            >Type a single exclamation mark
+            <span class="keyboard-badge">!</span> into the empty file.</span
+          >
+          <span class="step-item"
+            >Press <span class="keyboard-badge">Enter</span> or
+            <span class="keyboard-badge">Tab</span> to auto-expand the full
+            boilerplate!</span
+          >
+        </ul>
 
         <div class="code-block">
-          <span class="comment">// 1. Developer Console</span><br />
-          <span class="func">console</span>.<span class="func">log</span>(<span
-            class="string"
-            >"Testing code..."</span
-          >);<br /><br />
-          <span class="comment">// 2. Pop-up Window</span><br />
-          <span class="func">alert</span>(<span class="string"
-            >"Welcome to ISP!"</span
-          >);<br /><br />
-          <span class="comment">// 3. Web Page HTML</span><br />
-          <span class="func">document</span>.<span class="func">write</span
-          >(<span class="string">"&lt;h1&gt;Hello World&lt;/h1&gt;"</span>);
+          <span class="comment"><!-- Auto-generated HTML5 Structure --></span
+          ><br />
+          <span class="tag">&lt;!DOCTYPE html&gt;</span><br />
+          <span class="tag">&lt;html</span> <span class="attr">lang=</span
+          ><span class="string">"en"</span><span class="tag">&gt;</span><br />
+          <span class="tag">&lt;head&gt;</span><br />
+          &nbsp;&nbsp;<span class="tag">&lt;meta</span>
+          <span class="attr">charset=</span><span class="string">"UTF-8"</span
+          ><span class="tag">&gt;</span><br />
+          &nbsp;&nbsp;<span class="tag">&lt;title&gt;</span>Project<span
+            class="tag"
+            >&lt;/title&gt;</span
+          ><br />
+          <span class="tag">&lt;/head&gt;</span><br />
+          <span class="tag">&lt;body&gt;</span><br />
+          &nbsp;&nbsp;<span class="comment">&lt;!-- Code goes here --&gt;</span
+          ><br />
+          <span class="tag">&lt;/body&gt;</span><br />
+          <span class="tag">&lt;/html&gt;</span>
+        </div>
+
+        <div class="tip-box">
+          💡 <strong>Pro-Tip:</strong> Always change the
+          <code>&lt;title&gt;</code> tag text from "Document" to your project
+          name!
         </div>
       </section>
 
-      <!-- CARD 2: STRING QUOTES & BACKTICKS -->
+      <!-- CARD 2: CONNECTING CSS AND JS ALGORITHMS -->
       <section class="ref-card">
         <div class="card-header">
-          <h2 class="card-title">🔤 String Creation & Backticks</h2>
+          <h2 class="card-title">🔗 2. Connecting CSS & JS to HTML</h2>
           <span class="card-num">CARD 02</span>
+        </div>
+        <p
+          style="
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+          "
+        >
+          Step-by-step algorithms to link external stylesheets and script files:
+        </p>
+
+        <div class="code-block">
+          <span class="comment"><!-- 1. Link CSS inside <head> --></span><br />
+          <span class="tag">&lt;head&gt;</span><br />
+          &nbsp;&nbsp;<span class="tag">&lt;link</span>
+          <span class="attr">rel=</span><span class="string">"stylesheet"</span>
+          <span class="attr">href=</span><span class="string">"style.css"</span
+          ><span class="tag">&gt;</span><br />
+          <span class="tag">&lt;/head&gt;</span><br /><br />
+          <span class="comment"
+            ><!-- 2. Link JS right before closing &lt;/body&gt; --></span
+          ><br />
+          &nbsp;&nbsp;<span class="tag">&lt;script</span>
+          <span class="attr">src=</span><span class="string">"main.js"</span
+          ><span class="tag">&gt;&lt;/script&gt;</span><br />
+          <span class="tag">&lt;/body&gt;</span>
+        </div>
+
+        <ul class="step-list" style="margin-top: 1rem">
+          <span class="step-item"
+            ><strong>CSS Rule:</strong> Placed in <code>&lt;head&gt;</code> so
+            styles load before page elements render.</span
+          >
+          <span class="step-item"
+            ><strong>JS Rule:</strong> Placed at bottom of
+            <code>&lt;body&gt;</code> so HTML elements exist in DOM before JS
+            selects them.</span
+          >
+          <span class="step-item"
+            ><strong>Verification Test:</strong> Put
+            <code>console.log("Connected!");</code> in <code>main.js</code> and
+            check DevTools!</span
+          >
+        </ul>
+      </section>
+
+      <!-- CARD 3: DATA OUTPUT CHANNELS -->
+      <section class="ref-card">
+        <div class="card-header">
+          <h2 class="card-title">📡 3. Data Output Mechanisms</h2>
+          <span class="card-num">CARD 03</span>
+        </div>
+
+        <div class="code-block">
+          <span class="comment">// 1. Developer Console (Hidden Debugging)</span
+          ><br />
+          <span class="func">console</span>.<span class="func">log</span>(<span
+            class="string"
+            >"Debug message"</span
+          >);<br /><br />
+          <span class="comment">// 2. Browser Popup Notification</span><br />
+          <span class="func">alert</span>(<span class="string"
+            >"Program started!"</span
+          >);<br /><br />
+          <span class="comment">// 3. Direct HTML Document Stream</span><br />
+          <span class="func">document</span>.<span class="func">write</span
+          >(<span class="string">"&lt;h1&gt;Hello World&lt;/h1&gt;"</span>);
+        </div>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Target Location</th>
+              <th>Primary Use Case</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>console.log()</code></td>
+              <td>DevTools Console</td>
+              <td>Silent debugging & inspecting values</td>
+            </tr>
+            <tr>
+              <td><code>alert()</code></td>
+              <td>Popup Dialog</td>
+              <td>Urgent warnings & notifications</td>
+            </tr>
+            <tr>
+              <td><code>document.write()</code></td>
+              <td>HTML Page Body</td>
+              <td>Rendering text & tags to webpage</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- CARD 1: STRING RULES & TEMPLATE LITERALS -->
+      <!-- <section class="ref-card">
+        <div class="card-header">
+          <h2 class="card-title">🔤 1. String Quotes & Backticks Rule</h2>
+          <span class="card-num">CARD 01</span>
+        </div>
+
+        <div class="code-block">
+          <span class="keyword">let</span>
+          <span class="var-name">myName</span> =
+          <span class="string">"Lucy"</span>;<br /><br />
+          <span class="comment"
+            >// Backticks (`...`) allow embedded expressions:</span
+          ><br />
+          <span class="func">document</span>.<span class="func">write</span
+          >(<span class="string">`&lt;p&gt;Name: ${myName}&lt;/p&gt;`</span>);
         </div>
 
         <table class="comparison-table">
           <thead>
             <tr>
               <th>Quote Type</th>
-              <th>Multi-line?</th>
-              <th>Variables ${}?</th>
+              <th>Multi-line Text?</th>
+              <th>Variables <code>${...}</code>?</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Double <code>"</code></td>
-              <td>❌ No</td>
-              <td>❌ No</td>
+              <td>Double <code>"..."</code></td>
+              <td>❌ Syntax Error</td>
+              <td>❌ No (Prints literal)</td>
             </tr>
             <tr>
-              <td>Single <code>'</code></td>
-              <td>❌ No</td>
-              <td>❌ No</td>
+              <td>Single <code>'...'</code></td>
+              <td>❌ Syntax Error</td>
+              <td>❌ No (Prints literal)</td>
             </tr>
-            <tr style="color: var(--neon-green); font-weight: 700">
-              <td>Backticks `</td>
-              <td>✅ YES</td>
-              <td>✅ YES</td>
+            <tr>
+              <td>Backticks <code>`...`</code></td>
+              <td>✅ Supported!</td>
+              <td>✅ Supported (Interpolation)</td>
             </tr>
           </tbody>
         </table>
 
-        <div class="code-block" style="margin-top: 1rem">
-          <span class="keyword">let</span>
-          <span class="var-name">studentName</span> =
-          <span class="string">"Lucy"</span>;<br />
-          <span class="func">document</span>.<span class="func">write</span
-          >(<span class="string"
-            >`Name: &lt;strong&gt;<span class="var-name">${studentName}</span
-            >&lt;/strong&gt;`</span
-          >);
+        <div class="tip-box">
+          ⌨️ <strong>Key Location:</strong> The backtick key (<code>`</code>) is
+          located directly above the <span class="keyboard-badge">Tab</span> key
+          on standard keyboards!
         </div>
-      </section>
+      </section> -->
 
-      <!-- CARD 3: VARIABLE RULES -->
-      <section class="ref-card">
+      <!-- CARD 2: VARIABLE CONVENTIONS -->
+      <!-- <section class="ref-card">
         <div class="card-header">
-          <h2 class="card-title">🏷️ Variable Rules & camelCase</h2>
-          <span class="card-num">CARD 03</span>
+          <h2 class="card-title">🏷️ 2. Variable Rules & camelCase</h2>
+          <span class="card-num">CARD 02</span>
         </div>
 
         <div class="code-block">
+          <span class="comment">// ✅ CORRECT: camelCase Naming</span><br />
           <span class="keyword">let</span>
           <span class="var-name">userName</span> =
-          <span class="string">"Alex"</span>;
-          <span class="comment">// camelCase standard</span>
+          <span class="string">"Alex"</span>;<br />
+          <span class="keyword">let</span>
+          <span class="var-name">userAge1</span> =
+          <span class="string">14</span>;<br /><br />
+          <span class="comment">// ❌ INCORRECT (Syntax Errors):</span><br />
+          <span class="comment"
+            >// let 1user = "Alex"; (Starts with number!)</span
+          ><br />
+          <span class="comment"
+            >// let user name = "..."; (Spaces forbidden!)</span
+          ><br />
+          <span class="comment"
+            >// let user-name = "..."; (Hyphens forbidden!)</span
+          >
         </div>
 
-        <p style="font-size: 0.85rem; color: #ff4949; margin-top: 8px">
-          ❌ Forbidden: <code>let 1user</code> (number at start) |
-          <code>let user name</code> (space) |
-          <code>let user-name</code> (hyphen)
-        </p>
-      </section>
+        <ul class="step-list">
+          <span class="step-item"
+            ><strong>Rule 1:</strong> Always start with a lowercase letter (e.g.
+            <code>user...</code>).</span
+          >
+          <span class="step-item"
+            ><strong>Rule 2:</strong> Capitalize the first letter of each
+            subsequent word (e.g. <code>userName</code>).</span
+          >
+          <span class="step-item"
+            ><strong>Rule 3:</strong> Variable names are case-sensitive (<code
+              >myName</code
+            >
+            ≠ <code>myname</code>).</span
+          >
+        </ul>
+      </section> -->
 
-      <!-- CARD 4: AUTO-INCREMENT COUNTER -->
+      <!-- CARD 4: USEFUL VS CODE EXTENSIONS -->
       <section class="ref-card">
         <div class="card-header">
-          <h2 class="card-title">🔢 Auto-Increment Counters</h2>
+          <h2 class="card-title">🛠️ 4. Essential VS Code Extensions</h2>
           <span class="card-num">CARD 04</span>
         </div>
+        <p
+          style="
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+          "
+        >
+          Recommended extensions for beginner web developers (Extensions Tab
+          <span class="keyboard-badge">Ctrl+Shift+X</span> /
+          <span class="keyboard-badge">Cmd+Shift+X</span>):
+        </p>
 
-        <div class="code-block">
-          <span class="keyword">let</span> <span class="var-name">index</span> =
-          <span class="string">0</span>;<br />
-          <span class="var-name">index</span>++;
-          <span class="comment">// Shorthand for index = index + 1!</span><br />
-          <span class="func">document</span>.<span class="func">write</span
-          >(<span class="string"
-            >`&lt;p&gt;<span class="var-name">${index}</span>. First
-            Item&lt;/p&gt;`</span
-          >);
+        <div class="app-grid">
+          <div class="app-item">
+            <div class="app-name">🌐 Live Server</div>
+            <p class="app-desc">
+              By Ritwick Dey. Launches a local server with auto-reload upon
+              saving files!
+            </p>
+          </div>
+          <div class="app-item">
+            <div class="app-name">✨ Prettier</div>
+            <p class="app-desc">
+              By Prettier. Automatically formats HTML, CSS, and JS code neatly
+              on save.
+            </p>
+          </div>
+          <div class="app-item">
+            <div class="app-name">🏷️ Auto Rename Tag</div>
+            <p class="app-desc">
+              By Jun Han. Automatically renames matching HTML closing tag when
+              you edit the opening tag.
+            </p>
+          </div>
+          <div class="app-item">
+            <div class="app-name">🎨 Material Icon Theme</div>
+            <p class="app-desc">
+              By Philipp Kief. Adds clean visual file icons for HTML, CSS, and
+              JS in Explorer.
+            </p>
+          </div>
+          <div class="app-item">
+            <div class="app-name">Bracket Pair Color DLW</div>
+            <p class="app-desc">
+              by dlw. Highlights matching brackets with different colors for
+              easier code navigation.
+            </p>
+          </div>
+          <div class="app-item">
+            <div class="app-name">JavaScript (ES6) code snippets</div>
+            <p class="app-desc">
+              by Charalampos Karypidis. Adds useful JS code snippets for faster
+              coding.
+            </p>
+          </div>
+        </div>
+
+        <div class="tip-box">
+          🚀 <strong>How to launch Live Server:</strong> Right-click inside
+          <code>index.html</code> in VS Code → select
+          <strong>"Open with Live Server"</strong>!
         </div>
       </section>
     </main>
+
+    <footer>
+      <p>
+        International School Phuket (ISP) • Frontend Development Academy •
+        Module 01 Cheat Sheet
+      </p>
+    </footer>
   </body>
 </html>
