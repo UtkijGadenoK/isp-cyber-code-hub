@@ -6,6 +6,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Poppins:wght@400;600;700;900&display=swap');
 
 /* =========================================================
+   Navigation & Action Cyber Buttons
+   ========================================================= */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  border: 1px solid transparent;
+  backdrop-filter: blur(5px);
+  white-space: nowrap;
+}
+
+.nav-btn.sm {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+}
+
+.nav-btn-cyan {
+  background: rgba(0, 243, 255, 0.12);
+  color: var(--cyber-cyan) !important;
+  border-color: var(--cyber-cyan);
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.2);
+}
+
+.nav-btn-cyan:hover {
+  background: var(--cyber-cyan);
+  color: #080c14 !important;
+  box-shadow: 0 0 22px var(--cyber-cyan);
+  transform: translateY(-2px);
+}
+
+.nav-btn-magenta {
+  background: rgba(255, 0, 127, 0.12);
+  color: var(--neon-magenta) !important;
+  border-color: var(--neon-magenta);
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.2);
+}
+
+.nav-btn-magenta:hover {
+  background: var(--neon-magenta);
+  color: #ffffff !important;
+  box-shadow: 0 0 22px var(--neon-magenta);
+  transform: translateY(-2px);
+}
+
+.nav-btn-gold {
+  background: rgba(252, 182, 0, 0.12);
+  color: var(--isp-gold) !important;
+  border-color: var(--isp-gold);
+  box-shadow: 0 0 12px rgba(252, 182, 0, 0.2);
+}
+
+.nav-btn-gold:hover {
+  background: var(--isp-gold);
+  color: #080c14 !important;
+  box-shadow: 0 0 22px var(--isp-gold);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
    01. DESIGN TOKENS
 ========================================================= */
 
