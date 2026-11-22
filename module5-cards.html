@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Module 05: Introduction to Functions &amp; Code Blocks | ISP Cyber Code
+      Hub
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Poppins:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-dark: #080c14;
+        --card-bg: rgba(16, 24, 40, 0.85);
+        --neon-cyan: #00f3ff;
+        --neon-magenta: #ff007f;
+        --neon-green: #39ff14;
+        --neon-gold: #fcb600;
+        --text-main: #e2e8f0;
+        --text-muted: #94a3b8;
+        --border-glow: rgba(0, 243, 255, 0.3);
+        --code-bg: #0d1117;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        min-height: 100vh;
+        padding: 2rem;
+        background-image:
+          radial-gradient(
+            circle at 10% 20%,
+            rgba(0, 243, 255, 0.08) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(255, 0, 127, 0.08) 0%,
+            transparent 40%
+          );
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+        background-size: 30px 30px;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 2.5rem;
+        position: relative;
+        z-index: 1;
+      }
+      .badge-bar {
+        display: inline-block;
+        background: rgba(0, 243, 255, 0.1);
+        border: 1px solid var(--neon-cyan);
+        color: var(--neon-cyan);
+        font-family: 'Fira Code', monospace;
+        font-size: 0.85rem;
+        padding: 4px 14px;
+        border-radius: 20px;
+        letter-spacing: 1.5px;
+        margin-bottom: 10px;
+      }
+      h1 {
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: #fff;
+        text-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+        margin-bottom: 8px;
+      }
+      p.subtitle {
+        color: var(--text-muted);
+        font-size: 1rem;
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .ref-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-glow);
+        border-radius: 16px;
+        padding: 1.8rem;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        transition:
+          transform 0.3s ease,
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .ref-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--neon-cyan),
+          var(--neon-magenta)
+        );
+      }
+      .ref-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--neon-cyan);
+        box-shadow: 0 12px 40px rgba(0, 243, 255, 0.25);
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 0.8rem;
+      }
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--neon-cyan);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .card-num {
+        background: var(--neon-magenta);
+        color: #fff;
+        font-family: 'Fira Code', monospace;
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 6px;
+      }
+
+      .diagram-box {
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px dashed rgba(0, 243, 255, 0.3);
+        border-radius: 10px;
+        padding: 1rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .channel-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+      }
+
+      .channel-tag {
+        font-family: 'Fira Code', monospace;
+        font-weight: 700;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        min-width: 120px;
+        text-align: center;
+      }
+
+      .tag-console {
+        background: rgba(0, 243, 255, 0.15);
+        color: var(--neon-cyan);
+        border: 1px solid var(--neon-cyan);
+        padding: 4px 10px;
+      }
+
+      .tag-alert {
+        background: rgba(255, 0, 127, 0.15);
+        color: var(--neon-magenta);
+        border: 1px solid var(--neon-magenta);
+        padding: 4px 10px;
+      }
+
+      .tag-doc {
+        background: rgba(57, 255, 20, 0.15);
+        color: var(--neon-green);
+        border: 1px solid var(--neon-green);
+        padding: 4px 10px;
+      }
+
+      .code-block {
+        background: var(--code-bg);
+        border-radius: 8px;
+        padding: 1rem;
+        font-family: 'Fira Code', monospace;
+        font-size: 0.88rem;
+        line-height: 1.6;
+        color: #f8fafc;
+        border-left: 3px solid var(--neon-cyan);
+        margin-bottom: 1rem;
+        position: relative;
+      }
+      .code-block .keyword {
+        color: var(--neon-magenta);
+        font-weight: 700;
+      }
+      .code-block .string {
+        color: var(--neon-green);
+      }
+      .code-block .func {
+        color: var(--neon-cyan);
+      }
+      .code-block .comment {
+        color: #64748b;
+        font-style: italic;
+      }
+      .code-block .var-name {
+        color: var(--neon-gold);
+      }
+      .code-block .tag {
+        color: var(--neon-magenta);
+      }
+      .code-block .attr {
+        color: var(--neon-cyan);
+      }
+
+      .keyboard-badge {
+        background: #334155;
+        color: #fff;
+        font-family: 'Fira Code', monospace;
+        padding: 3px 8px;
+        border-radius: 6px;
+        border: 1px solid #475569;
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+      .step-list {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1rem;
+      }
+      .step-item {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        padding-left: 1.5rem;
+        position: relative;
+        line-height: 1.5;
+      }
+      .step-item::before {
+        content: '⚡';
+        position: absolute;
+        left: 0;
+        color: var(--neon-gold);
+      }
+
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.85rem;
+        margin-top: 10px;
+      }
+      .comparison-table th,
+      .comparison-table td {
+        padding: 8px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+      }
+      .comparison-table th {
+        background: rgba(0, 243, 255, 0.1);
+        color: var(--neon-cyan);
+        font-family: 'Fira Code', monospace;
+      }
+
+      .app-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+        margin-top: 0.8rem;
+      }
+      .app-item {
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 0.8rem;
+      }
+      .app-name {
+        font-weight: 700;
+        color: var(--neon-gold);
+        font-size: 0.88rem;
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .app-desc {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        line-height: 1.4;
+      }
+
+      .tip-box {
+        background: rgba(252, 182, 0, 0.1);
+        border: 1px solid var(--neon-gold);
+        border-radius: 8px;
+        padding: 0.8rem 1rem;
+        font-size: 0.85rem;
+        color: var(--neon-gold);
+        margin-top: 1rem;
+        display: block;
+        line-height: 1.7;
+        overflow-wrap: break-word;
+        align-items: center;
+        gap: 10px;
+      }
+      footer {
+        text-align: center;
+        margin-top: 3rem;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .back-nav {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        z-index: 10;
+      }
+      .back-btn {
+        background: rgba(16, 24, 40, 0.8);
+        border: 1px solid var(--neon-cyan);
+        color: var(--neon-cyan);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-family: 'Fira Code', monospace;
+        text-decoration: none;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+      }
+      .back-btn:hover {
+        background: var(--neon-cyan);
+        color: #000;
+        box-shadow: 0 0 15px var(--neon-cyan);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="back-nav">
+      <a href="index.html" class="back-btn">← BACK TO PORTAL</a>
+    </div>
+
+    <header class="header">
+      <div class="badge-bar">
+        MODULE 05 • INTRODUCTION TO FUNCTIONS & CODE BLOCKS
+      </div>
+      <h1>Introduction to Functions & Code Blocks</h1>
+      <p class="subtitle">
+        ISP Developer Academy • Functions &amp; Code Blocks
+      </p>
+    </header>
+
+    <main class="cards-grid">
+      <!-- CARD 1: CODE BLOCKS & SCOPE -->
+      <section class="ref-card">
+        <div class="card-header">
+          <h2 class="card-title">📦 1. Code Blocks & Scope</h2>
+          <span class="card-num">CARD 01</span>
+        </div>
+        <p
+          style="
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+          "
+        >
+          Declaring duplicate variable names in the same scope causes a
+          <code>SyntaxError</code>. Curly braces <code>{}</code> create an
+          isolated sandbox where local variables live only inside that block.
+        </p>
+
+        <div class="diagram-box">
+          <div class="channel-row">
+            <span class="channel-label tag-console"> Global Scope </span>
+            <span>--> Outer Variables (Visible everywhere)</span>
+          </div>
+          <div class="channel-row">
+            <span class="channel-label tag-doc"> { Block Scope } </span>
+            <span>--> Curly Braces Sandbox (Local Variables)</span>
+          </div>
+          <div class="channel-row">
+            <span class="channel-label tag-alert"> ReferenceError </span>
+            <span>--> Outer code CANNOT see inside { }</span>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <span class="keyword">let</span>
+          <span class="var-name">hero</span> =
+          <span class="string">"Tony"</span>;
+          <span class="comment">// Global</span>
+          <br />
+          <br />
+          {<br />
+          &nbsp;&nbsp;
+          <span class="keyword">let</span>
+          <span class="var-name">armor</span> =
+          <span class="string">"Mark 85"</span>;
+          <span class="comment">// Local to block</span>
+          <br />
+          <span class="func">console</span>.<span class="func">log</span>(<span
+            class="var-name"
+            >hero</span
+          >, <span class="var-name">armor</span>);
+          <span class="comment">// ✅ "Tony" "Mark 85"</span>
+          <br />
+          }<br />
+          <br />
+          <span class="comment">// console.log(armor); ❌ ReferenceError!</span>
+        </div>
+        <div>
+          <span class="tip-box"
+            >💡 <strong>Scope Rule:</strong> Blocks allow reusing common
+            variable names like <code>age</code> without collision errors.</span
+          >
+        </div>
+      </section>
+
+      <!-- CARD 2: DECLARATION VS INVOCATION -->
+      <section class="ref-card">
+        <div class="card-header">
+          <h2 class="card-title">⚙️ 2.Function Declaration &amp; Call</h2>
+          <span class="card-num">CARD 02</span>
+        </div>
+
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Syntax</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Declaration</td>
+              <td><code>function name() { }</code></td>
+              <td>Writes the recipe (Waits)</td>
+            </tr>
+            <tr style="color: var(--neon-green); font-weight: 700">
+              <td>2. Invocation</td>
+              <td><code>name();</code></td>
+              <td>Bakes the cake (Executes)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="code-block" style="margin-top: 1rem">
+          <span class="keyword">let</span>
+          <span class="var-name">index</span> = <span class="num">0</span>;
+          <br />
+          <br />
+          <span class="comment">// 1. Declaration</span>
+          <br />
+          <span class="keyword">function</span>
+          <span class="func">launchAlert</span>() {<br />
+          &nbsp;&nbsp;<span class="var-name">index</span>++;
+          <br />
+          &nbsp;&nbsp;<span class="func">console</span>.
+          <span class="func">log</span>(<span class="string"
+            >`Mission #${index} ready!`</span
+          >); <br />
+          }
+          <br />
+          <br />
+          <span class="comment">// 2. Calling 3 times:</span>
+          <br />
+          <span class="func">launchAlert</span>();
+          <span class="comment">//"Mission #1 ready!"</span>
+          <br />
+          <span class="func">launchAlert</span>();
+          <span class="comment">//"Mission #2 ready!"</span>
+        </div>
+        <div class="tip-box" style="margin-top: 1rem">
+          <span
+            >⚠️ <strong>Watch Out:</strong> Writing
+            <code>launchAlert</code> without <code>()</code> does NOT run the
+            function!</span
+          >
+        </div>
+      </section>
+
+      <!-- CARD 3: PARAMETERS & ARGUMENTS -->
+      <section class="ref-card">
+        <div class="card-header">
+          <h2 class="card-title">🎯 3. Parameters vs. Arguments</h2>
+          <span class="card-num">CARD 03</span>
+        </div>
+
+        <div class="diagram-box">
+          <div class="channel-row">
+            <span class="channel-label tag-console">Parameter</span>
+            <span>--&gt; Placeholder variable: <code>(name, age)</code></span>
+          </div>
+          <div class="channel-row">
+            <span class="channel-label tag-user">Argument</span>
+            <span
+              >--&gt; Concrete value passed: <code>("Thor", 1500)</code></span
+            >
+          </div>
+        </div>
+
+        <div class="code-block">
+          <span class="comment">// userName & heroAge are Parameters</span
+          ><br />
+          <span class="keyword">function</span>
+          <span class="func">showHero</span>(<span class="var-name"
+            >userName</span
+          >, <span class="var-name">heroAge</span>) {<br />
+          &nbsp;&nbsp;<span class="func">document</span>.<span class="func"
+            >write</span
+          >(<span class="string"
+            >`&lt;p&gt;${userName}: ${heroAge} yrs&lt;/p&gt;`</span
+          >);
+          <br />
+          }<br />
+          <br />
+          <span class="comment">// Static Arguments:</span><br />
+          <span class="func">showHero</span>(<span class="string">"Thor"</span>,
+          <span class="num">1500</span>);<br /><br />
+          <span class="comment">// Dynamic via prompt() & Number():</span><br />
+          <span class="func">showHero</span>(<span class="func">prompt</span
+          >(<span class="string">"Name:"</span>),
+          <span class="func">Number</span>(<span class="func">prompt</span
+          >(<span class="string">"Age:"</span>)));
+        </div>
+        <div class="tip-box">
+          <span
+            >💡 <strong>Type Reminder:</strong> Always wrap numerical prompts in
+            <code>Number()</code> to avoid string concatenation.</span
+          >
+        </div>
+      </section>
+
+      <!-- CARD 4: ACCUMULATORS & ROSTER PATTERN -->
+      <section class="ref-card">
+        <div class="card-header">
+          <h2 class="card-title">📊 4. Roster & Group Accumulators</h2>
+          <span class="card-num">CARD 04</span>
+        </div>
+        <div class="code-block">
+          <span class="keyword">let</span>
+          <span class="var-name">totalAge</span> = <span class="num">0</span>;
+          <br />
+          <span class="keyword">let</span>
+          <span class="var-name">count</span> = <span class="num">0</span>;
+          <br />
+          <br />
+          <span class="keyword">function</span>
+          <span class="func">addMember</span>(
+          <span class="var-name">name</span>,
+          <span class="var-name">birthYear</span>) {<br />
+          &nbsp;&nbsp;<span class="keyword">let</span>
+          <span class="var-name">age</span> = <span class="num">2026</span> -
+          <span class="var-name">birthYear</span>;<br />
+          &nbsp;&nbsp;<span class="var-name">totalAge</span> +=
+          <span class="var-name">age</span>;
+          <span class="comment">// Accumulate</span><br />
+          &nbsp;&nbsp;<span class="var-name">count</span>++;<br />
+          &nbsp;&nbsp;<span class="func">document</span>.<span class="func"
+            >write</span
+          >(
+          <span class="string"
+            >`&lt;li&gt;${count}. ${name} (${age} yrs)&lt;/li&gt;`</span
+          >);
+          <br />
+          }<br />
+          <br />
+          <span class="func">addMember</span>(<span class="string">"Tony"</span
+          >, <span class="num">1970</span>);
+          <br />
+          <span class="func">addMember</span>(<span class="string">"Steve"</span
+          >, <span class="num">1918</span>);
+          <br />
+          <br />
+          <span class="func">document</span>.<span class="func">write</span
+          >(<span class="string">`Avg: ${(totalAge / count).toFixed(1)}`</span
+          >);
+        </div>
+        <div class="tip-box">
+          <span
+            >🚀 <strong>DRY Principle:</strong> "Don't Repeat Yourself" — Write
+            your HTML card once inside the function!</span
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        International School Phuket (ISP) • Frontend Development Academy •
+        Module 01 Cheat Sheet
+      </p>
+    </footer>
+  </body>
+</html>
